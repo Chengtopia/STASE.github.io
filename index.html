@@ -17,8 +17,7 @@
         <nav class="nav">
           <a href="#overview">Overview</a>
           <a href="#method">Method</a>
-          <a href="#figures">Figures</a>
-          <a href="#citation">Citation</a>
+          <a href="#demo">Demo</a>
         </nav>
       </div>
     </header>
@@ -34,37 +33,33 @@
       <section id="overview" class="section container">
         <h3>Overview</h3>
         <p>
-          Placeholder for the paper/project abstract and key ideas. Add more detailed descriptions,
-          task definitions, and method highlights in subsequent iterations.
+          This page introduces STASE with a high-level comparison and an overall method walkthrough.
+          Use the navigation to jump to each section.
         </p>
+      </section>
+
+      <section id="demo" class="section container">
+        <h3>High-level Comparison</h3>
+        <p>High-level comparison between previous spatial networks and the proposed STASE framework.</p>
+        <img src="./assets/images/methods.png" alt="High-level comparison diagram" />
       </section>
 
       <section id="method" class="section container">
-        <h3>Method & Pipeline</h3>
-        <p>The following figure shows the overall method pipeline (placeholder).</p>
-        <figure class="figure">
-          <img src="./assets/images/pipeline_agent.png" alt="Pipeline / Agent diagram" />
-          <figcaption>Method pipeline (Pipeline/Agent).</figcaption>
-        </figure>
+        <h3>Method</h3>
+        <h4>Overall Method</h4>
+        <ol>
+          <li>Input preparation: natural-language instruction and optional references.</li>
+          <li>Prompt structuring: convert input into description and abstract prompts to control modules.</li>
+          <li>Spatial knowledge retrieval (RAG): fetch prior cues (e.g., room, direction, HRIR/BRIR) and map them to constraints.</li>
+          <li>Source processing: separate or manage stems; estimate spatial attributes such as direction, distance and reverberation.</li>
+          <li>Rendering and mixing: spatialize each stem with consistent acoustics and mix them into a coherent scene.</li>
+          <li>Output: deliver the final spatial audio mix.</li>
+        </ol>
+        <p>The overall workflow of the STASE framework. Natural language input is progressively structured into description and abstract prompts, enriched by retrieval-augmented spatial knowledge (RAG). These prompts steer modules for source extraction, spatial attribute estimation (e.g., direction, distance, room cues), and rendering. The pipeline finally mixes all rendered stems to produce a coherent spatial audio result.</p>
+        <p>Concretely, STASE couples: (1) language understanding to form controllable prompts; (2) a spatial information matcher that aligns text with symbolic/learned priors; (3) a render-and-mix stage that positions sources in space with consistent acoustics.</p>
+        <img src="./assets/images/pipeline_agent.png" alt="STASE workflow" />
       </section>
 
-      <section id="figures" class="section container">
-        <h3>Figures</h3>
-        <div class="grid">
-          <figure class="card">
-            <img src="./assets/images/example.png" alt="Example figure" />
-            <figcaption>Example figure.</figcaption>
-          </figure>
-          <!-- 如需更多插图，可以在此追加 card -->
-        </div>
-      </section>
-
-      <section id="citation" class="section container">
-        <h3>Citation</h3>
-        <p>
-          BibTeX or citation information will be provided here (placeholder).
-        </p>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -76,6 +71,33 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      (function () {
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">\n' +
+                  '  <rect width="100%" height="100%" fill="#121621"/>\n' +
+                  '  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#a7adbd"' +
+                  '        font-family="Inter, Arial, sans-serif" font-size="24">Image not found</text>\n' +
+                  '</svg>';
+        var fallbackSrc = 'data:image/svg+xml,' + encodeURIComponent(svg);
+        var images = document.querySelectorAll('img');
+        images.forEach(function (img) {
+          if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+          img.setAttribute('decoding', 'async');
+          function applyFallback() {
+            if (img.dataset.fallbackApplied === 'true') return;
+            img.dataset.fallbackApplied = 'true';
+            img.src = fallbackSrc;
+            if (!img.alt || img.alt.trim() === '') {
+              img.alt = 'Image not found';
+            }
+          }
+          img.addEventListener('error', applyFallback);
+          img.onerror = applyFallback;
+          if (img.complete && img.naturalWidth === 0) {
+            applyFallback();
+          }
+        });
+      })();
     </script>
   </body>
   </html>
