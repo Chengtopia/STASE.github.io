@@ -8,7 +8,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Fallback critical styles for card grid */
+      .grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        gap: 20px; 
+        margin-top: 24px; 
+      }
+      .card { 
+        background: rgba(18,22,33,0.7); 
+        border: 1px solid rgba(255,255,255,0.06); 
+        border-radius: 12px; 
+        padding: 20px; 
+        transition: all 0.3s ease;
+      }
+      .card h4 {
+        margin: 0 0 12px;
+        color: #7dc4ff;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .card ul {
+        margin: 12px 0;
+        padding-left: 16px;
+        list-style: none;
+      }
+      .card li {
+        margin: 6px 0;
+        position: relative;
+        color: #e6e8ef;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .card li::before {
+        content: "•";
+        color: #b58aff;
+        font-weight: bold;
+        position: absolute;
+        left: -12px;
+      }
+      .card strong {
+        color: #e6e8ef;
+        font-weight: 600;
+      }
+      .card em {
+        color: #b0b7c7;
+        font-style: italic;
+        font-size: 13px;
+        display: block;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -28,11 +82,6 @@
         <div class="container">
           <h2 class="title">STASE: Spatialized Text-to-Audio Synthesis Engines</h2>
           <p class="subtitle">Generating spatially dynamic musical compositions from natural language prompts</p>
-          <div class="visitor-counter">
-            <p class="visitor-text">Welcome! You are visitor #<span id="visitor-count">
-              <img src="https://counter.digits.net/?counter={stase-demo}&template=simple&background=transparent&color=7dc4ff" alt="Visitor count" style="vertical-align: middle; height: 16px;">
-            </span></p>
-          </div>
         </div>
       </section>
 

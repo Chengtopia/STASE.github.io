@@ -62,27 +62,6 @@ body {
  .title { font-size: 40px; margin: 0 0 8px; }
 .subtitle { margin: 0; color: var(--muted); }
 
-.visitor-counter {
-  margin-top: 24px;
-  padding: 12px 20px;
-  background: rgba(125,196,255,0.08);
-  border: 1px solid rgba(125,196,255,0.15);
-  border-radius: 8px;
-  display: inline-block;
-}
-
-.visitor-text {
-  margin: 0;
-  font-size: 14px;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.visitor-text #visitor-count {
-  color: var(--brand);
-  font-weight: 700;
-  font-size: 16px;
-}
 
 .section { padding: 36px 0; scroll-margin-top: var(--header-h); }
 .section h3 { margin: 0 0 14px; font-size: 24px; letter-spacing: 0.2px; }
