@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>STASE — Demo Page</title>
-    <meta name="description" content="STASE project demo page scaffold (no audio yet, includes two figures)." />
+    <meta name="description" content="STASE: Spatialized Text-to-Audio Synthesis Engines for Music Generation - Research project demo page." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -17,6 +17,7 @@
         <nav class="nav">
           <a href="#overview">Overview</a>
           <a href="#method">Method</a>
+          <a href="#positioning">Positioning</a>
           <a href="#demo">Demo</a>
         </nav>
       </div>
@@ -25,16 +26,22 @@
     <main>
       <section class="hero">
         <div class="container">
-          <h2 class="title">Project Demo Page (Scaffolding)</h2>
-          <p class="subtitle">This is the scaffold with figures only. Audio demos will be added later.</p>
+          <h2 class="title">STASE: Spatialized Text-to-Audio Synthesis Engines</h2>
+          <p class="subtitle">Generating spatially dynamic musical compositions from natural language prompts</p>
+          <div class="visitor-counter">
+            <p class="visitor-text">Welcome! You are visitor #<span id="visitor-count">
+              <img src="https://counter.digits.net/?counter={stase-demo}&template=simple&background=transparent&color=7dc4ff" alt="Visitor count" style="vertical-align: middle; height: 16px;">
+            </span></p>
+          </div>
         </div>
       </section>
 
       <section id="overview" class="section container">
         <h3>Overview</h3>
         <p>
-          This page introduces STASE with a high-level comparison and an overall method walkthrough.
-          Use the navigation to jump to each section.
+          STASE introduces a novel framework for generating spatially dynamic musical compositions directly from natural language prompts. 
+          Unlike existing text-to-audio systems that produce monophonic or fixed-stereo outputs, STASE offers fine-grained control over 
+          the spatialization of individual sound sources through a hybrid neuro-symbolic architecture.
         </p>
       </section>
 
@@ -60,6 +67,95 @@
         <img src="./assets/images/pipeline_agent.png" alt="STASE workflow" />
       </section>
 
+      <section id="positioning" class="section container">
+        <h3>Classic Instrument Positioning Examples</h3>
+        <p>Our system leverages a comprehensive knowledge base of classic instrument positioning scenarios from various musical traditions and performance contexts. Below are some key examples from our RAG system:</p>
+        
+        <div class="grid">
+          <div class="card">
+            <h4>Symphony Orchestra</h4>
+            <p>Traditional orchestral layout based on Vienna Golden Hall positioning:</p>
+            <ul>
+              <li><strong>First Violin:</strong> Left front (-45°), distance factor 1.0</li>
+              <li><strong>Second Violin:</strong> Center-left (-15°), distance factor 1.1</li>
+              <li><strong>Viola:</strong> Center-right (15°), distance factor 1.2</li>
+              <li><strong>Cello:</strong> Right side (45°), distance factor 1.3</li>
+              <li><strong>Woodwinds:</strong> Center-left rear (-10°), distance factor 2.0</li>
+              <li><strong>Brass:</strong> Center-right rear (10°), distance factor 2.5</li>
+            </ul>
+            <p><em>Reverb: Concert Hall (2.4s), Rich and warm early reflections</em></p>
+          </div>
+
+          <div class="card">
+            <h4>Jazz Big Band</h4>
+            <p>Classic jazz arrangement inspired by Count Basie Orchestra:</p>
+            <ul>
+              <li><strong>Saxophone Section:</strong> Left front (-30°), prominent positioning</li>
+              <li><strong>Trumpet Section:</strong> Front center (0°), high energy placement</li>
+              <li><strong>Trombone Section:</strong> Right front (30°), powerful presence</li>
+              <li><strong>Piano:</strong> Left side (-60°), harmonic foundation</li>
+              <li><strong>Drums:</strong> Right rear (45°), rhythmic anchor</li>
+              <li><strong>Vocals:</strong> Front center-left (-10°), intimate positioning</li>
+            </ul>
+            <p><em>Reverb: Jazz Club (0.8s), Intimate and warm ambience</em></p>
+          </div>
+
+          <div class="card">
+            <h4>Rock Stadium Concert</h4>
+            <p>Arena rock setup inspired by Queen Live Aid performance:</p>
+            <ul>
+              <li><strong>Lead Vocals:</strong> Center stage (0°), maximum presence</li>
+              <li><strong>Lead Guitar:</strong> Stage left (-45°), dynamic positioning</li>
+              <li><strong>Rhythm Guitar:</strong> Stage right (45°), supporting role</li>
+              <li><strong>Bass Guitar:</strong> Center-left (-20°), foundation layer</li>
+              <li><strong>Drums:</strong> Rear center (0°), wide spread (60°)</li>
+              <li><strong>Crowd Ambience:</strong> Surround field (360°), immersive energy</li>
+            </ul>
+            <p><em>Reverb: Stadium (3.2s), Powerful and expansive acoustics</em></p>
+          </div>
+
+          <div class="card">
+            <h4>Chamber Music Quartet</h4>
+            <p>Intimate string quartet arrangement for small venue:</p>
+            <ul>
+              <li><strong>First Violin:</strong> Left front (-30°), lead voice</li>
+              <li><strong>Second Violin:</strong> Right front (30°), harmonic support</li>
+              <li><strong>Viola:</strong> Left rear (-60°), inner voice</li>
+              <li><strong>Cello:</strong> Right rear (60°), bass foundation</li>
+            </ul>
+            <p><em>Reverb: Chamber Hall (1.2s), Intimate and precise acoustics</em></p>
+          </div>
+
+          <div class="card">
+            <h4>Electronic Dance Music Festival</h4>
+            <p>Main stage layout inspired by Tomorrowland configuration:</p>
+            <ul>
+              <li><strong>DJ Booth:</strong> Center stage (0°), focal point</li>
+              <li><strong>Main Speakers:</strong> Left/Right arrays (±75°), massive output</li>
+              <li><strong>Sub Bass:</strong> Center array (0°), physical impact</li>
+              <li><strong>Delay Towers:</strong> Mid-field (±45°), extended coverage</li>
+              <li><strong>Side Fills:</strong> Perimeter (±90°), immersive field</li>
+              <li><strong>Crowd Energy:</strong> Full surround, reactive ambience</li>
+            </ul>
+            <p><em>Reverb: Festival (4.0s), Massive and immersive soundscape</em></p>
+          </div>
+
+          <div class="card">
+            <h4>Acoustic Singer-Songwriter</h4>
+            <p>Intimate coffee shop performance setup:</p>
+            <ul>
+              <li><strong>Lead Vocals:</strong> Front center (0°), close and personal</li>
+              <li><strong>Acoustic Guitar:</strong> Slightly left (-20°), melodic support</li>
+              <li><strong>Harmonica:</strong> Right side (20°), textural element</li>
+              <li><strong>Foot Stomp:</strong> Ground level (0°), rhythmic pulse</li>
+              <li><strong>Room Ambience:</strong> Surround field, natural acoustics</li>
+              <li><strong>Audience Whispers:</strong> Background, subtle presence</li>
+            </ul>
+            <p><em>Reverb: Cafe Acoustic (0.9s), Natural and intimate atmosphere</em></p>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
@@ -71,6 +167,7 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
 
       (function () {
         var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">\n' +
